@@ -20,7 +20,7 @@ def html_special_chars(text):
         .replace("\n", "&#10;")
 
 
-class Writer_BuffererWriter:
+class BuffererWriter:
 
     def __init__(self, filename, fd_fopen_flags='w', buffer_size=400):
         self.fd = open(filename, fd_fopen_flags)
@@ -174,7 +174,7 @@ class Writer:
             'sheetname': sheet_name,
             'xmlname': sheet_xmlname,
             'row_count': 0,
-            'file_writer': Writer_BuffererWriter(sheet_filename, buffer_size=self._buffer_size),
+            'file_writer': BuffererWriter(sheet_filename, buffer_size=self._buffer_size),
             'columns': [],
             'merge_cells': [],
             'max_cell_tag_start': 0,
@@ -234,7 +234,7 @@ class Writer:
         if len(col_widths) > 0:
             for column_width in col_widths:
                 sheet['file_writer'].write(
-                    '<col collapsed="false" hidden="false" max="' + str(i + 1) + '" min="' + str(i + 1) + '" style="0" customWidth="true" width="' + str(column_width) + '"/>');
+                    '<col collapsed="false" hidden="false" max="' + str(i + 1) + '" min="' + str(i + 1) + '" style="0" customWidth="true" width="' + str(column_width) + '"/>')
                 i += 1
 
         sheet['file_writer'].write('<col collapsed="false" hidden="false" max="1024" min="' + str(i + 1) + '" style="0" customWidth="false" width="11.5"/>')
@@ -523,7 +523,7 @@ class Writer:
         borders = r['borders']
         style_indexes = r['styles']
         temporary_filename = self._tempFilename()
-        file = Writer_BuffererWriter(temporary_filename)
+        file = BuffererWriter(temporary_filename)
 
         file.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + "\n")
         file.write('<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">')

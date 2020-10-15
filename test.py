@@ -29,15 +29,3 @@ writer.saveAs(testFilePath)
 end = getTime() - start
 
 print("cells count: {}x{}. Time: {} ms".format(rows_count, len(row), end))
-
-# rows*10	P3.6	PY3.5
-"""
-1_000		4		6
-10_000 		27		11
-100_000 	248		40
-1_000_000	2375	1014
-
-python3 ./test.py 10
-/opt/pypy3.5/bin/pypy3 ./test.py 10
-
-"""
