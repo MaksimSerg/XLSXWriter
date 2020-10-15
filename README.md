@@ -11,7 +11,8 @@ Python. Формирование xlsx-файла<br/>
 <br/>
 Простой пример:
 <br/>
-```
+
+```python
 import XLSXWriter
 
 writer = XLSXWriter.Writer()
@@ -19,5 +20,5 @@ writer.sheetAdd('Sheet1')
 
 writer.writeSheetRow( ['text'] )
 
-writer.saveAs("test.xlsx")
+writer.saveAs('test.xlsx')
 ```
