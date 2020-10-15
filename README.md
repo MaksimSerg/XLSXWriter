@@ -11,7 +11,7 @@ Python. Формирование xlsx-файла<br/>
 <br/>
 Простой пример:
 <br/>
-```python
+```
 import XLSXWriter
 
 writer = XLSXWriter.Writer()
